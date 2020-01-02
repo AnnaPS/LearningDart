@@ -35,13 +35,26 @@ void main() {
   // Define size to list.
   List moreNumbers = List(10);
   // When are define a static size we can't use add.
-  //  moreNumbers.add(1);
+  // moreNumbers.add(1);
 
   // We need to access the position and set value.
   moreNumbers[0] = 1;
   print(moreNumbers);
+
+  // Map
+  String property = 'single';
+  //Dynamic means that it can be any type of data
+  Map<String, dynamic> person = {'name': 'Carlos',
+                'age': 32, 
+                'single': true};
+  print(person['name']);
+  print(person['age']);
+  print(person[property]);
   
-  // Map --
+  person.addAll({'child': false});
+  print(person['child']);
   
+  
+
   //-------------------------------------
 }

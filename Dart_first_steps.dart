@@ -2,7 +2,7 @@ void main() {
   // ----- First variable -----
   var name = 'Ana';
   print('Hello $name');
-  // --------------------------
+  // ----end first variable----
 
   // ----- Types of data ------
   //Numbers
@@ -44,17 +44,80 @@ void main() {
   // Map
   String property = 'single';
   //Dynamic means that it can be any type of data
-  Map<String, dynamic> person = {'name': 'Carlos',
-                'age': 32, 
-                'single': true};
+  Map<String, dynamic> person = {'name': 'Carlos', 'age': 32, 'single': true};
   print(person['name']);
   print(person['age']);
   print(person[property]);
-  
+
   person.addAll({'child': false});
   print(person['child']);
-  
-  
+  //--------end type of data ------------
 
-  //-------------------------------------
+  // ------- Functions ------------------
+  sayHello();
+  print(sayHelloReturnString());
+  print(sayHelloWithArguments('Ana', "Hola"));
+  print(sayHelloWithArgumentsAndSetValue(name: 'Ana', text: 'Hola'));
+
+  //--------end funtions ----------------
+
+  // --------- Classes ------------------
+
+  final elliotAlderson = new MrRobot(name: 'Elliot', isWhiteRose: false);
+  print(elliotAlderson.toString());
+
+  final captainAmerica =
+      new Marvel(nameOfHeroe: 'Captain America', power: 'Fighter');
+  print(captainAmerica);
+
+  // ------ end classes -----------------
+}
+
+//--------- Functions block -------------
+sayHello() {
+  print('Hello');
+}
+
+String sayHelloReturnString() {
+  return 'Return Hello';
+}
+
+String sayHelloWithArguments(String text, String name) {
+  return '$text $name';
+}
+
+// By putting {} in the arguments we force the value to be specified for each data. => equals return.
+String sayHelloWithArgumentsAndSetValue({String text, String name}) =>
+    '$text $name';
+
+//-------- end functions block ---------
+
+// ------- Classes block ---------------
+
+class MrRobot {
+  String name;
+  bool isWhiteRose;
+
+  // constructor with  'names' arguments
+  MrRobot({String name, bool isWhiteRose}) {
+    this.name = name;
+    this.isWhiteRose = isWhiteRose;
+  }
+
+  // override toString method
+  String toString() {
+    return '${this.name} is WhiteRose? : ${this.isWhiteRose}';
+  }
+}
+
+class Marvel {
+  String nameOfHeroe;
+  String power;
+
+  Marvel({this.nameOfHeroe, this.power});
+
+  // override toString method
+  String toString() {
+    return 'Name of heroe : $nameOfHeroe / power =  $power';
+  }
 }
